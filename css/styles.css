@@ -1,11 +1,8 @@
 :root {
   --blanco: #ffffff;
   --oscuro: #212121;
-  --primario: rgb(
-    255,
-    193,
-    7
-  ); /*se pueden poner en HEX o en RGB/RGBA. RGBA APLICA TRANSPARENCIA CUARTO VALOR*/
+  --primario: rgb(255, 193, 7);
+  /*se pueden poner en HEX o en RGB/RGBA. RGBA APLICA TRANSPARENCIA CUARTO VALOR*/
   --secundario: #0097a7;
   --gris: #757575;
 }
@@ -13,24 +10,52 @@
 /*IMPORTANTE PARA TAMAÑOS*/
 html {
   font-size: 62.5%;
+  box-sizing: border-box;
+  /*box-sizing_border-box y los selectores de depues *, *:before, *:after: EXPLICACION
+  No tienen que ver con la normalización de tamaños. Es para cuando haces un padding que no afecte el tamaño del elemento,
+  puedes hacer un padding que suma un grosor arriba y abajo y estaría modificando  tambien el tamaño de todo el elemento.
+  El selector asterisco, significa TODO, *:before y after son pseudoelementos que existen en css 
+  pero no en html... más adelante */
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
-  font-size: 16px; /*1rem= 10px */
+  font-size: 16px;
+  /*1rem= 10px */
   font-family: "Krub", sans-serif;
 }
-/* Estas dos reglas html y body hacen que los rems sean más sencillos de utilizar.
- Sirve para adaptarse a diferentes tipos de pantallas*/
-.titulo {
+
+h1 {
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
   text-align: center;
-  font-size: 3.8rem; /*3.8rem= 38px*/
 }
 
 .titulo span {
-  font-size: 2rem; /*20px*/
+  font-size: 2rem;
+  /*20px*/
 }
 
 .contenedor {
-  max-width: 120rem; /*si tiene los 120rem se muestra en tamnaño completo, sino es responsive*/
+  max-width: 120rem;
+  /*si tiene los 120rem se muestra en tamnaño completo, sino es responsive*/
 
   /* margin-top: 0;
   margin-right: auto;
@@ -44,15 +69,36 @@ body {
   margin: 0 auto;
 }
 
+.boton {
+  background-color: var(--secundario);
+  color: var(--blanco);
+  padding: 1rem 3rem;
+  margin-top: 3rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  width: 90%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .boton {
+    width: auto;
+  }
+}
+
 .nav-bg {
   background-color: var(--secundario);
 }
+
 .navegacion-principal {
   /*es lo mismo que si lo tuvieras 4 veces : 1 rem 1 rem 1 rem 1 rem*/
   display: flex;
   flex-direction: column;
   /*flex-direction: row viene por defecto.. se puede cambiar a column, etc*/
 }
+
 @media (min-width: 480px) {
   /*si es mayor o igual de 480px se mostrarará como una linea*/
   .navegacion-principal {
@@ -60,26 +106,32 @@ body {
     justify-content: space-between;
   }
 }
+
 /*tamaños media query:*/
 @media (min-width: 480px) {
   /*este cambia cuando sea un teléfono*/
 }
+
 @media (min-width: 768px) {
   /*este cambia cuando sea una tablet*/
 }
+
 @media (min-width: 1140px) {
   /*pc 1*/
 }
+
 @media (min-width: 1400px) {
   /* pc 2 */
 }
 
 .navegacion-principal a {
   display: block;
-  text-align: center; /*igual que justify content pero para columnas. Esto se podria haber puesto en navegacion principal sin enlaces, con align-items:center
+  text-align: center;
+  /*igual que justify content pero para columnas. Esto se podria haber puesto en navegacion principal sin enlaces, con align-items:center
   pero es más sencillo así*/
   color: var(--blanco);
-  text-decoration: none; /*esto quita el subrallado del enlace*/
+  text-decoration: none;
+  /*esto quita el subrallado del enlace*/
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem;
@@ -92,6 +144,37 @@ body {
 
 .hero {
   background-image: url(../img/hero.jpg);
-  background-repeat: no-repeat; /* para que no se repita la imágen una vez acabe */
-  background-size: cover; /*toma todo el ancho disponible y no sale cortada*/
+  background-repeat: no-repeat;
+  /* para que no se repita la imágen una vez acabe */
+  background-size: cover;
+  /*toma todo el ancho disponible y no sale cortada*/
+  height: 450px;
+  position: relative;
+}
+
+.contenido-hero {
+  position: absolute;
+  background-color: RGBA(0, 0, 0, 0.7);
+  /* FORMA ANTIGUA RGB, A para la transparencia del 0 transparente al 1 negro, para el sombreado*/
+  background-color: RGB(0 0 0 / 70%);
+  /*FORMA NUEVA*/
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*Aliniar verticalmente*/
+  justify-content: center;
+  /*Aliniar horizontalmente*/
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+  color: var(--blanco);
+}
+
+.contenido-hero .ubicacion {
+  display: flex;
+  align-items: flex-end; /*si se pone align items no hace falta poner flex direction column, con flex end se alinean desde abajo */
 }
