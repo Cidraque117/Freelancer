@@ -1,0 +1,97 @@
+:root {
+  --blanco: #ffffff;
+  --oscuro: #212121;
+  --primario: rgb(
+    255,
+    193,
+    7
+  ); /*se pueden poner en HEX o en RGB/RGBA. RGBA APLICA TRANSPARENCIA CUARTO VALOR*/
+  --secundario: #0097a7;
+  --gris: #757575;
+}
+
+/*IMPORTANTE PARA TAMAÑOS*/
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 16px; /*1rem= 10px */
+  font-family: "Krub", sans-serif;
+}
+/* Estas dos reglas html y body hacen que los rems sean más sencillos de utilizar.
+ Sirve para adaptarse a diferentes tipos de pantallas*/
+.titulo {
+  text-align: center;
+  font-size: 3.8rem; /*3.8rem= 38px*/
+}
+
+.titulo span {
+  font-size: 2rem; /*20px*/
+}
+
+.contenedor {
+  max-width: 120rem; /*si tiene los 120rem se muestra en tamnaño completo, sino es responsive*/
+
+  /* margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;  Abreviamos con la liniea de abajo*/
+
+  /* margin: 0 auto 0 auto; 
+  Si se repite podemos abreviarlo en 0 auto, css interpreta
+  0 como arriba y abajo, y auto como izq y dcha */
+
+  margin: 0 auto;
+}
+
+.nav-bg {
+  background-color: var(--secundario);
+}
+.navegacion-principal {
+  /*es lo mismo que si lo tuvieras 4 veces : 1 rem 1 rem 1 rem 1 rem*/
+  display: flex;
+  flex-direction: column;
+  /*flex-direction: row viene por defecto.. se puede cambiar a column, etc*/
+}
+@media (min-width: 480px) {
+  /*si es mayor o igual de 480px se mostrarará como una linea*/
+  .navegacion-principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+/*tamaños media query:*/
+@media (min-width: 480px) {
+  /*este cambia cuando sea un teléfono*/
+}
+@media (min-width: 768px) {
+  /*este cambia cuando sea una tablet*/
+}
+@media (min-width: 1140px) {
+  /*pc 1*/
+}
+@media (min-width: 1400px) {
+  /* pc 2 */
+}
+
+.navegacion-principal a {
+  display: block;
+  text-align: center; /*igual que justify content pero para columnas. Esto se podria haber puesto en navegacion principal sin enlaces, con align-items:center
+  pero es más sencillo así*/
+  color: var(--blanco);
+  text-decoration: none; /*esto quita el subrallado del enlace*/
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+  background-color: var(--primario);
+  color: var(--oscuro);
+}
+
+.hero {
+  background-image: url(../img/hero.jpg);
+  background-repeat: no-repeat; /* para que no se repita la imágen una vez acabe */
+  background-size: cover; /*toma todo el ancho disponible y no sale cortada*/
+}
