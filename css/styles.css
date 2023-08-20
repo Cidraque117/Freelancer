@@ -5,6 +5,7 @@
   /*se pueden poner en HEX o en RGB/RGBA. RGBA APLICA TRANSPARENCIA CUARTO VALOR*/
   --secundario: #0097a7;
   --gris: #757575;
+  --grisClaro: #dfe9f3;
 }
 
 /*IMPORTANTE PARA TAMAÑOS*/
@@ -28,6 +29,11 @@ body {
   font-size: 16px;
   /*1rem= 10px */
   font-family: "Krub", sans-serif;
+  background-image: linear-gradient(
+    to top,
+    var(--grisClaro) 0%,
+    var(--blanco) 100%
+  );
 }
 
 h1 {
@@ -86,6 +92,14 @@ h3 {
   .boton {
     width: auto;
   }
+}
+.sombra {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.48);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.48);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 .nav-bg {
@@ -150,6 +164,7 @@ h3 {
   /*toma todo el ancho disponible y no sale cortada*/
   height: 450px;
   position: relative;
+  margin-bottom: 2rem;
 }
 
 .contenido-hero {
@@ -178,3 +193,5 @@ h3 {
   display: flex;
   align-items: flex-end; /*si se pone align items no hace falta poner flex direction column, con flex end se alinean desde abajo */
 }
+
+/**Servicios**/
